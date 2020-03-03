@@ -1,0 +1,15 @@
+<div style="background-color: aquamarine;">Ex 1 : Note </div>
+<div>
+    <h3>Note :</h3>
+    <Textarea @value={{model.content}} class="form-control"></Textarea><br>
+    <button style="background-color: brown;" {{action "save" model}}>Enregistrer</button>
+    <button style="background-color: brown;" {{action "clear" model}}>Effacer</button>
+</div>
+<div class="alert alert-info">
+    Nombre de caractères restants : {{model.size}} <br>
+    Modif {{model.modif}}
+</div>
+{{#if alertVisible}}
+<div class="alert {{model.style}}">Note modifiée</div>
+
+{{/if}}
