@@ -1,0 +1,8 @@
+<br><br>
+<h2>Ajouter un contact</h2>
+<div class="form">
+	{{input type="text" value=prenom placeholder="Prenom"}}
+  {{input type="text"  value=nom placeholder="Nom"}}
+  {{input type="text"  value=email placeholder="Email"}}
+  <button {{action 'addContact'}} class="btn btn-primary">Valider</button>
+</div>

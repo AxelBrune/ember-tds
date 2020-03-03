@@ -1,0 +1,24 @@
+<table class="table">
+  <thead class="thead-dark">
+      <tr>
+        <th>Nom</th>
+        <th>Prenom</th>
+        <th>Email</th>
+        <th colspan="2">Actions</th>
+      </tr>
+  </thead>
+  <tbody>
+    {{#each model.datas as |contact|}}
+        <tr>
+            <td>{{contact.nom}}</td>
+            <td>{{contact.prenom}}</td>
+            <td>{{contact.email}}</td>
+            {{!-- <td><button ><a href="http://localhost:4200/contacts/edit" class="text-dark">[...]</a></button></td> --}}
+            <LinkTo @route="contacts.edit" @model={{contact}} class="btn btn-info">{{fa-icon "edit"}}</LinkTo>
+            <td><button {{action "delete" contact}} class="btn btn-danger">{{fa-icon "times"}}</button></td>
+        </tr>
+    {{/each}}
+  </tbody>
+</table><br>
+<a href="http://localhost:4200/contacts/add" class="btn btn-primary">Ajouter...</a>
+{{outlet}}

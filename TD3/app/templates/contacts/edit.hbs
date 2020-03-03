@@ -1,0 +1,16 @@
+<br><br>
+<h2>Modifier un contact</h2>
+<div class="form">
+	{{!-- {{input type="text" value=prenom placeholder="Prenom"}}
+  {{input type="text"  value=nom placeholder="Nom"}}
+  {{input type="text"  value=email placeholder="Email"}} --}}
+  {{!-- <input type="text" value={{model.prenom}} placeholder="Prenom">
+  <input type="text" value={{model.nom}} placeholder="Nom">
+  <input type="text" value={{model.email}} placeholder="Mail"> --}}
+
+  <Input @value={{model.prenom}} placeholder="Prenom"/>
+  <Input @value={{model.nom}} placeholder="Nom"/>
+  <Input @value={{model.email}} placeholder="Email"/>
+  <button {{action 'updateContact' model }} class="btn btn-primary">Valider</button>
+  <a href="http://localhost:4200/contacts" class="btn btn-primary">Annuler</a>
+</div>
