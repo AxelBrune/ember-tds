@@ -1,0 +1,17 @@
+<br><br>
+<center>
+    <h2>Add a project</h2>
+<div class="form"><br>
+	<div class="name">
+        {{input type="text" value=name placeholder="Name"}}
+    </div><br>
+    <div class="descriptif">
+        {{input type="textarea" value=descriptif placeholder="Description" size=50}}
+    </div><br>
+    <div class="dates">
+        {{input type="date" value=startDate}}
+        {{input type="date" value=dueDate}}
+    </div><br><br>
+  <button {{action 'addProject'}} class="btn btn-primary">Valider</button>
+</div>
+</center>

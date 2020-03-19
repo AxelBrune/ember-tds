@@ -1,1 +1,31 @@
+<a href="" class="btn btn-primary">Home</a>
+<a href="http://localhost:4200/projects" class="btn btn-primary disabled">Projects</a>
+<a href="http://localhost:4200/developers" class="btn btn-primary">Developers</a>
+<br>
+{{fa-icon "table"}} <h2>models\Projects</h2>
+<a href="http://localhost:4200/projects/new" class="btn btn-danger">Add a new models\Project</a>
+<br><br>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Start Date</th>
+      <th scope="col">DueDate</th>
+      <th scope="col" colspan="2">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each model as |item|}}
+        <tr>
+            <td>{{item.name}}</td>
+            <td>{{item.descriptif}}</td>
+            <td>{{item.startDate}}</td>
+            <td>{{item.dueDate}}</td>
+            <LinkTo @route="developers.edit" @model={{item}} class="btn btn-info">{{fa-icon "edit"}}</LinkTo>
+            <td><button {{action "deleteProject" item}} class="btn btn-danger">{{fa-icon "times"}}</button></td>
+        </tr>
+    {{/each}}
+  </tbody>
+</table>
 {{outlet}}
