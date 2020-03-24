@@ -10,10 +10,16 @@ Router.map(function() {
   this.route('developers', function() {
     this.route('new');
     this.route('edit',{path : 'edit/:developer_id'});
+    this.route('delete',{path : 'delete/:developer_id'});
   });
   this.route('projects', function() {
     this.route('new');
   });
-});
+  this.route('project',{path : 'project/:project_id'});
+
+    this.route('story', function() {
+      this.route('new',{path : 'new/:project_id'});
+    });
+  });
 
 export default Router;

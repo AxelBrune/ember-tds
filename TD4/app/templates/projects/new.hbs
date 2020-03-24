@@ -11,7 +11,15 @@
     <div class="dates">
         {{input type="date" value=startDate}}
         {{input type="date" value=dueDate}}
-    </div><br><br>
+    </div><br>
+    <div class="owner">
+        <select>
+        <option>--Choose Owner--</option>
+        {{#each model as |developer|}}
+            <option value={{developer.id}}>{{developer.identity}}</option>
+        {{/each}}
+    </select>
+    </div><br>
   <button {{action 'addProject'}} class="btn btn-primary">Valider</button>
 </div>
 </center>

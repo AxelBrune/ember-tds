@@ -16,8 +16,11 @@
     {{#each model as |item|}}
         <tr>
             <td>{{item.identity}}</td>
-            <LinkTo @route="developers.edit" @model={{item}} class="btn btn-info">{{fa-icon "edit"}}</LinkTo>
-            <td><button {{action "deleteDeveloper" item}} class="btn btn-danger">{{fa-icon "times"}}</button></td>
+            <td>
+              <LinkTo @route="developers.edit" @model={{item}} class="btn btn-info">{{fa-icon "edit"}}</LinkTo>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <LinkTo @route="developers.delete" @model={{item}} class="btn btn-danger">{{fa-icon "times"}}</LinkTo>
+            </td>
         </tr>
     {{/each}}
   </tbody>

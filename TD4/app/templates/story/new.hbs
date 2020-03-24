@@ -1,0 +1,16 @@
+<h1>&nbsp;&nbsp;{{fa-icon "file"}} Boards-EmberJS</h1>
+<h3>Ajout d'une story dans le projet</h3>
+
+<center>
+<p>Code</p>
+{{input type="text" value=code}}
+<br><p>Description</p>
+{{input type="textarea" value=descriptif}}
+<br><p>Developer</p>
+<select>
+        <option>--Choose Developer--</option>
+        {{#each this.model.devs as |developer|}}
+            <option value={{developer.id}}>{{developer.identity}}</option>
+        {{/each}}
+    </select>
+</center>

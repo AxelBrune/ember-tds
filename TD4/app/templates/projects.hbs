@@ -12,7 +12,7 @@
       <th scope="col">Description</th>
       <th scope="col">Start Date</th>
       <th scope="col">DueDate</th>
-      <th scope="col" colspan="2">Actions</th>
+      <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -22,8 +22,11 @@
             <td>{{item.descriptif}}</td>
             <td>{{item.startDate}}</td>
             <td>{{item.dueDate}}</td>
-            <LinkTo @route="developers.edit" @model={{item}} class="btn btn-info">{{fa-icon "edit"}}</LinkTo>
-            <td><button {{action "deleteProject" item}} class="btn btn-danger">{{fa-icon "times"}}</button></td>
+            <td>
+              <LinkTo @route="project" @model={{item}} class="btn btn-info">{{fa-icon "eye"}}</LinkTo>
+              <LinkTo @route="developers.edit" @model={{item}} class="btn btn-info">{{fa-icon "edit"}}</LinkTo>
+              <button {{action "deleteProject" item }} class="btn btn-danger">{{fa-icon "times"}}</button>
+            </td>
         </tr>
     {{/each}}
   </tbody>

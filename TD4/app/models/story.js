@@ -2,6 +2,7 @@ import DS from 'ember-data';
 const { Model } = DS;
 
 export default Model.extend({
-    identity:DS.attr(),
-    projects: DS.hasMany('projects')
+    code:DS.attr(),
+    descriptif: DS.attr(),
+    project : DS.belongsTo('project')
 });
