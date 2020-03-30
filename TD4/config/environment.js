@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   let ENV = {
-    modulePrefix: 'td4',
+    modulePrefix: 'td4b',
     environment,
     rootURL: '/',
     locationType: 'auto',
@@ -35,6 +35,10 @@ module.exports = function(environment) {
     // Testem prefers this...
     ENV.locationType = 'none';
 
+    ENV.contentSecurityPolicy = {
+      'connect-src': "'self' http://127.0.0.1:8082"
+    };
+
     // keep test console output quieter
     ENV.APP.LOG_ACTIVE_GENERATION = false;
     ENV.APP.LOG_VIEW_LOOKUPS = false;
@@ -45,10 +49,6 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     // here you can enable a production-specific feature
-  }
-  ENV.contentSecurityPolicy = {
-    // ... other stuff here
-    'connect-src': "'self' http://127.0.0.1:8082"
   }
 
   return ENV;

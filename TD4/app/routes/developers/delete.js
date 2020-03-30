@@ -1,14 +1,16 @@
 import Route from '@ember/routing/route';
 
 export default Route.extend({
-    model(){
-        return this.get('store').findRecord('developer',1);
+  actions: {
+    delete: function (developer) {
+      this.get('store').findRecord('developer', developer.id, {reload: true}).then((developer) => {
+        developer.destroyRecord().then(() => {
+          this.transitionTo('developers');
+        });
+      });
     },
-    actions:{
-        DeleteDeveloper(data){
-            data.deleteRecord();
-            data.save();
-            this.transitionTo("developers")
-        }
+    cancel: function () {
+      this.transitionTo('developers');
     }
+  }
 });

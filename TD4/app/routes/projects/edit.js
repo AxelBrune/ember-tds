@@ -1,17 +1,16 @@
 import Route from '@ember/routing/route';
-import EmberObject from '@ember/object';
 import RSVP from 'rsvp';
 
 export default Route.extend({
-  model() {
+  model({project_id}) {
     return RSVP.hash({
-      projet: EmberObject.create(),
+      projet: this.get('store').find('project', project_id),
       devs: this.get('store').findAll('developer')
     })
   },
   actions: {
-    save: function (project) {
-      this.get('store').createRecord('project', project).save().then(() => this.transitionTo('projects'));
+    edit: function (project) {
+      project.save().then(() => this.transitionTo('projects'));
     },
     cancel: function () {
       this.transitionTo('projects');

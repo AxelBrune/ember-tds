@@ -1,13 +1,9 @@
 import Route from '@ember/routing/route';
 
-export default Route.extend({
-    model(){
-        return this.get('store').findAll("project")
-    },
-    actions:{
-        deleteProject(pro){
-            pro.deleteRecord();
-            pro.save();
-        }
+export default Route.extend(
+  {
+    model() {
+      return this.get('store').findAll('project');
     }
-});
+  }
+);

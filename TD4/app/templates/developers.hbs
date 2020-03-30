@@ -1,28 +1,57 @@
-<a href="" class="btn btn-primary">Home</a>
-<a href="http://localhost:4200/projects" class="btn btn-primary">Projects</a>
-<a href="" class="btn btn-primary disabled">Developers</a>
-<br>
-{{fa-icon "table"}} <h2>models\Developer</h2>
-<a href="http://localhost:4200/developers/new" class="btn btn-danger">Add a new models\Developer</a>
-<br><br>
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">Identity</th>
-      <th scope="col" colspan="2">Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each model as |item|}}
+<LinkTo @route="developers">
+  <h1 class="ui header">
+    <i class="table icon"></i>
+    <span class="content">
+      models/Developer
+      <span class="sub header">Data administration</span>
+    </span>
+  </h1>
+</LinkTo>
+<div class="ui segment">
+  <LinkTo @route="developers.new" class="ui purple button">
+    <i class="icon plus"></i>
+    Ajouter un nouveau développeur
+  </LinkTo>
+  <table class="ui inverted grey table">
+    <thead>
+      <tr>
+        <th>Identité</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each model as |developer|}}
         <tr>
-            <td>{{item.identity}}</td>
-            <td>
-              <LinkTo @route="developers.edit" @model={{item}} class="btn btn-info">{{fa-icon "edit"}}</LinkTo>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <LinkTo @route="developers.delete" @model={{item}} class="btn btn-danger">{{fa-icon "times"}}</LinkTo>
-            </td>
+          <td>{{developer.identity}}</td>
+          <td class="right aligned">
+            <LinkTo class="circular ui basic icon button orange" title="Modifier" @route="developers.edit" @model={{developer}}>
+              <i class="icon edit"></i>
+            </LinkTo>
+            <LinkTo class="circular ui inverted red icon button" title="Supprimer" @route="developers.delete"
+                    @model={{developer}}>
+              <i class="icon times"></i>
+            </LinkTo>
+          </td>
         </tr>
-    {{/each}}
-  </tbody>
-</table>
+      {{else}}
+        <tr>
+          <td colspan="2" class="center aligned">Il n'y a pas de développeur d'enregistré</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  <tfoot class="full-width">
+    <tr>
+      <th></th>
+      <th colspan="4">
+        <div class="ui right floated">
+          <LinkTo @route="projects.new" class="ui purple button">
+            <i class="icon plus"></i>
+            Ajouter un nouveau projet
+          </LinkTo>
+        </div>
+      </th>
+    </tr>
+  </tfoot>
+  </table>
+</div>
 {{outlet}}

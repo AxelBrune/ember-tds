@@ -1,5 +1,14 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-<center><h1>TD4 Ember Js</h1></center>
-{{!-- Feel free to remove this! --}}
-
-{{outlet}}
+<div class="ui container">
+  <div class="ui secondary  menu">
+    <a class="item">
+      Accueil
+    </a>
+    <LinkTo class="item" @route="projects">
+      Projets
+    </LinkTo>
+    <LinkTo class="item" @route="developers">
+      Développeurs
+    </LinkTo>
+  </div>
+  {{outlet}}
+</div>
