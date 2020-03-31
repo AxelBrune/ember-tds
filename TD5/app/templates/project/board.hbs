@@ -2,22 +2,22 @@
   <i class="icon calendar alternate"></i>
   <div class="content">
     Tableau de bord
-    <div class="sub header">Avancement des stories du projet</div>
+    <div class="sub header">Progress of the project stories</div>
   </div>
 </div>
 
 <div class="ui segments">
   <div class="ui green tertiary segment">
-    <p>Avec la story sélectionnée : <strong>Nom de la story</strong></p>
+    <p>with selected story : <strong>Nom de la story</strong></p>
   </div>
   <div class="ui segment ">
     <button class="ui button">
       <i class="folder open icon"></i>
-      Ouvrir…
+      Open…
     </button>
     {{#ui-dropdown class="ui floating dropdown labeled icon button" onChange=(action (mut model.steps)) as |execute mapper|}}
       <i class="arrow circle right icon"></i>
-      <span class="default-text">Aller à l'étape</span>
+      <span class="default-text">Move to step</span>
       <div class="menu">
         {{#each model.steps as |step|}}
           <div class="item" data-value={{map-value mapper step}}>
@@ -27,9 +27,9 @@
         {{/each}}
       </div>
     {{/ui-dropdown}}
-    <button class="ui red button">
+    <button class="ui red button" {{action "cancel"}}>
       <i class="times icon"></i>
-      Supprimer
+      Remove
     </button>
   </div>
 </div>

@@ -11,7 +11,8 @@ export default Route.extend(
         story: EmberObject.create(),
         tag: EmberObject.create(),
         developers: this.get('store').findAll('developer'),
-        tags: this.get('store').findAll('tag')
+        tags: this.get('store').findAll('tag'),
+        active: false
       });
     },
     actions: {

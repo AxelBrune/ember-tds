@@ -9,6 +9,11 @@ export default Route.extend(
         projet: this.get('store').find('project', project_id),
         steps: this.get('store').findAll('step').then(steps => steps.sortBy('order'))
       })
+    },
+    actions:{
+      cancel: function(){
+        this.transitionTo('project');
+      }
     }
   }
 );
