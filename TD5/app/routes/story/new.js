@@ -22,6 +22,7 @@ export default Route.extend(
       },
       saveTag: function (data) {
         this.get('store').createRecord('tag', data).save();
+        this.set('tag.title',' ');
       }
     }
   }
