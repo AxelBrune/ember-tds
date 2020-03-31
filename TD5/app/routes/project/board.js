@@ -13,6 +13,14 @@ export default Route.extend(
     actions:{
       cancel: function(){
         this.transitionTo('project');
+      },
+      moveToStep: function (story_id, step) {
+        this.get('store').findRecord('story', story_id).then((story) => {
+          this.set(story, 'step', step);
+          story.save().then(() => {
+            this.refresh();
+          })
+        })
       }
     }
   }

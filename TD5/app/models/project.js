@@ -11,8 +11,16 @@ export default Model.extend({
   owner: DS.belongsTo('developer'),
   stories: DS.hasMany('story'),
   boardVisible : DS.attr('boolean'),
-  backlog: Ember.computed('stories.@each.step','boardVisible',function(){
-    if (this.boardVisible == false){
+  backlog: Ember.computed('boardVisible', 'stories.@each.step', function () {
+    let stories = [];
+    if(this.get('boardsVisible') === true) {
+      this.stories.forEach(story => {
+        if(story.step.id !== undefined) {
+          stories.push(story);
+        }
+        return stories;
+      })
+    } else {
       return this.get('stories');
     }
   })
